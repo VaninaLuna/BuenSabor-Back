@@ -1,6 +1,7 @@
 package com.example.buensaborback;
 
 import com.example.buensaborback.domain.entities.*;
+import com.example.buensaborback.domain.entities.enums.RolName;
 import com.example.buensaborback.repositories.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,4 +25,36 @@ public class BuenSaborBackApplication {
         SpringApplication.run(BuenSaborBackApplication.class, args);
     }
 
+
+
+        @Bean
+    CommandLineRunner init(UsuarioRepository usuarioRepository,
+                           ClienteRepository clienteRepository,
+                           RolRepository rolRepository
+        ) {
+        return args -> {
+            logger.info("----------------Crear usuario---------------------");
+
+            Rol rolAdmin = Rol.builder()
+                    .rolName(RolName.ADMIN)
+                    .build();
+            var rolAdminS = rolRepository.save(rolAdmin);
+
+            Cliente clienteAdmin = Cliente.builder()
+                    .nombre("admin")
+                    .email("admin@buensa.com")
+                    .build();
+            var clienteAdminS = clienteRepository.save(clienteAdmin);
+
+            UsuarioCliente usuarioAdmin = UsuarioCliente.builder()
+                    .nombreUsuario("admin")
+                    .rol(rolAdminS)
+                    .cliente(clienteAdminS)
+                    .build();
+            var usuarioAdminS = usuarioRepository.save(usuarioAdmin);
+
+            clienteAdminS.setUsuario(usuarioAdminS);
+            clienteRepository.save(clienteAdminS);
+        };
+    }
 }
