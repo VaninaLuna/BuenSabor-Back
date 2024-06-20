@@ -10,7 +10,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,9 +21,6 @@ public class AuthController extends BaseControllerImpl<UsuarioCliente, UsuarioSe
     @Autowired
     private UsuarioService usuarioService;
     private ClienteService clienteService;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
     public ResponseEntity<UsuarioCliente> registerUser(@RequestBody UsuarioCliente usuarioCliente) throws Exception {
