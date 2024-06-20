@@ -35,26 +35,26 @@ public class BuenSaborBackApplication {
         return args -> {
             logger.info("----------------Crear usuario---------------------");
 
-            Rol rolAdmin = Rol.builder()
-                    .rolName(RolName.ADMIN)
-                    .build();
-            var rolAdminS = rolRepository.save(rolAdmin);
-
-            Cliente clienteAdmin = Cliente.builder()
-                    .nombre("admin")
-                    .email("admin@buensa.com")
-                    .build();
-            var clienteAdminS = clienteRepository.save(clienteAdmin);
-
-            UsuarioCliente usuarioAdmin = UsuarioCliente.builder()
-                    .nombreUsuario("admin")
-                    .rol(rolAdminS)
-                    .cliente(clienteAdminS)
-                    .build();
-            var usuarioAdminS = usuarioRepository.save(usuarioAdmin);
-
-            clienteAdminS.setUsuario(usuarioAdminS);
-            clienteRepository.save(clienteAdminS);
+//            Rol rolAdmin = Rol.builder()
+//                    .rolName(RolName.ADMIN)
+//                    .build();
+//            var rolAdminS = rolRepository.save(rolAdmin);
+//
+//            Cliente clienteAdmin = Cliente.builder()
+//                    .nombre("admin")
+//                    .email("admin@buensa.com")
+//                    .build();
+//            var clienteAdminS = clienteRepository.save(clienteAdmin);
+//
+//            UsuarioCliente usuarioAdmin = UsuarioCliente.builder()
+//                    .nombreUsuario("admin")
+//                    .rol(rolAdminS)
+//                    .cliente(clienteAdminS)
+//                    .build();
+//            var usuarioAdminS = usuarioRepository.save(usuarioAdmin);
+//
+//            clienteAdminS.setUsuario(usuarioAdminS);
+//            clienteRepository.save(clienteAdminS);
         };
     }
 }
