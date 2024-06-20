@@ -33,7 +33,7 @@ public class BuenSaborBackApplication {
                            RolRepository rolRepository
         ) {
         return args -> {
-            logger.info("----------------Crear usuario---------------------");
+            logger.info("----------------Crear usuario Admin---------------------");
 
 //            Rol rolAdmin = Rol.builder()
 //                    .rolName(RolName.ADMIN)
@@ -55,6 +55,77 @@ public class BuenSaborBackApplication {
 //
 //            clienteAdminS.setUsuario(usuarioAdminS);
 //            clienteRepository.save(clienteAdminS);
+
+            logger.info("----------------Crear usuario Cajero---------------------");
+
+//            Rol rolCajero = Rol.builder()
+//                    .rolName(RolName.CAJERO)
+//                    .build();
+//            var rolCajeroS = rolRepository.save(rolCajero);
+//
+//            Cliente clienteCajero = Cliente.builder()
+//                    .nombre("cajero")
+//                    .email("cajero@buensa.com")
+//                    .build();
+//            var clienteCajeroS = clienteRepository.save(clienteCajero);
+//
+//            UsuarioCliente usuarioCajero = UsuarioCliente.builder()
+//                    .nombreUsuario("cajero")
+//                    .rol(rolCajeroS)
+//                    .cliente(clienteCajeroS)
+//                    .build();
+//            var usuarioCajeroS = usuarioRepository.save(usuarioCajero);
+//
+//            clienteCajeroS.setUsuario(usuarioCajeroS);
+//            clienteRepository.save(clienteCajeroS);
+
+            logger.info("----------------Crear usuario Cocinero---------------------");
+
+//            Rol rolCocinero = Rol.builder()
+//                    .rolName(RolName.COCINERO)
+//                    .build();
+//            var rolCocineroS = rolRepository.save(rolCocinero);
+//
+//            Cliente clienteCocinero = Cliente.builder()
+//                    .nombre("cocinero")
+//                    .email("cocinero@buensa.com")
+//                    .build();
+//            var clienteCocineroS = clienteRepository.save(clienteCocinero);
+//
+//            UsuarioCliente usuarioCocinero = UsuarioCliente.builder()
+//                    .nombreUsuario("cocinero")
+//                    .rol(rolCocineroS)
+//                    .cliente(clienteCocineroS)
+//                    .build();
+//            var usuarioCocineroS = usuarioRepository.save(usuarioCocinero);
+//
+//            clienteCocineroS.setUsuario(usuarioCocineroS);
+//            clienteRepository.save(clienteCocineroS);
+
+            logger.info("----------------Crear usuario Cliente---------------------");
+
+//            Rol rolCliente = Rol.builder()
+//                    .rolName(RolName.CLIENTE)
+//                    .build();
+//            var rolClienteS = rolRepository.save(rolCliente);
+//
+//            Cliente clienteCliente = Cliente.builder()
+//                    .nombre("cliente")
+//                    .email("cliente@buensa.com")
+//                    .build();
+//            var clienteClienteS = clienteRepository.save(clienteCliente);
+//
+//            UsuarioCliente usuarioCliente = UsuarioCliente.builder()
+//                    .nombreUsuario("cliente")
+//                    .rol(rolClienteS)
+//                    .cliente(clienteClienteS)
+//                    .build();
+//            var usuarioClienteS = usuarioRepository.save(usuarioCliente);
+//
+//            clienteClienteS.setUsuario(usuarioClienteS);
+//            clienteRepository.save(clienteClienteS);
+
+
         };
     }
 }
