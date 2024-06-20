@@ -66,12 +66,12 @@ public class FacturaController extends BaseControllerImpl<Factura, FacturaServic
             facturaService.printPDF(id, outputStream);
 
             // Enviar el correo electrónico con el PDF adjunto
-            emailService.sendEmailWithAttachment(
-                    email,
-                    "Aquí está tu factura",
-                    "Por favor, encuentra adjunta tu factura.",
-                    outputStream.toByteArray()
-            );
+//            emailService.sendEmailWithAttachment(
+//                    email,
+//                    "Aquí está tu factura",
+//                    "Por favor, encuentra adjunta tu factura.",
+//                    outputStream.toByteArray()
+//            );
 
             // Devolver un mensaje de confirmación
             return new ResponseEntity<>("El correo electrónico ha sido enviado con éxito.", HttpStatus.OK);
