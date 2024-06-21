@@ -2,8 +2,11 @@ package com.example.buensaborback.controller;
 
 
 import com.example.buensaborback.domain.entities.Rol;
+import com.example.buensaborback.domain.entities.Sucursal;
 import com.example.buensaborback.domain.entities.enums.RolName;
 import com.example.buensaborback.services.RolService;
+import com.example.buensaborback.services.RolServiceImpl;
+import com.example.buensaborback.services.SucursalServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +17,7 @@ import java.util.List;
 @RequestMapping("/rol")
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
-public class RolController {
+public class RolController extends BaseControllerImpl<Rol, RolServiceImpl> {
 
     private final RolService rolService;
 
@@ -35,4 +38,6 @@ public class RolController {
             throw new RuntimeException(e);
         }
     }
+
+
 }
