@@ -7,6 +7,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,4 +33,12 @@ public class Sucursal extends Base{
     @JsonIgnoreProperties("sucursales")
     @JsonBackReference
     private Empresa empresa;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    @JoinTable(name = "sucursal_categoria",
+            joinColumns = @JoinColumn(name = "sucursal_id"),
+            inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+    @JsonIgnoreProperties({"domicilio"})
+    @Builder.Default
+    private Set<Categoria> categorias = new HashSet<>();
 }
