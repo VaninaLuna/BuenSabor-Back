@@ -12,13 +12,10 @@ import lombok.*;
 @ToString
 @Builder
 public class ImagenPromocion extends Base{
-    @Lob
-    @Column(name = "imagen", columnDefinition = "LONGBLOB")
-    private byte[] imagen;
-    private String imagenPath;
+    private String url;
 
     @ManyToOne
     @JoinColumn(name = "promocion_id")
-    @JsonBackReference(value = "imagen_promocion")
+    @JsonBackReference
     private Promocion promocion;
 }
