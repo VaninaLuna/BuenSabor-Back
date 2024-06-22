@@ -33,7 +33,6 @@ public class Promocion extends Base {
     private LocalTime horaHasta;
     private String descripcionDescuento;
     private Double precioPromocional;
-//    @Enumerated(EnumType.STRING)
     private String tipoPromocion;
 
     @OneToMany(mappedBy = "promocion", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
