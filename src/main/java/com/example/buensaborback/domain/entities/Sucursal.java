@@ -24,6 +24,7 @@ public class Sucursal extends Base{
     private LocalTime horarioApertura;
     private LocalTime horarioCierre;
     private Boolean casaMatriz;
+    private String url;
 
     @OneToOne()
     @JoinColumn(name = "domicilio_id")
