@@ -1,6 +1,8 @@
 package com.example.buensaborback.domain.entities;
 
 import com.example.buensaborback.domain.entities.enums.TipoPromocion;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -23,12 +25,15 @@ import java.util.Set;
 public class Promocion extends Base {
 
     private String denominacion;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate fechaDesde;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate fechaHasta;
     private LocalTime horaDesde;
     private LocalTime horaHasta;
     private String descripcionDescuento;
     private Double precioPromocional;
+    @Enumerated(EnumType.STRING)
     private TipoPromocion tipoPromocion;
 
     @OneToMany(mappedBy = "promocion", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -36,12 +41,10 @@ public class Promocion extends Base {
     @JsonManagedReference
     protected Set<ImagenPromocion> imagenes = new HashSet<>();
 
-    @ManyToMany(cascade = CascadeType.REFRESH)
-    @JoinTable(name = "promocion_sucursal",
-            joinColumns = @JoinColumn(name = "promocion_id"),
-            inverseJoinColumns = @JoinColumn(name = "sucursal_id"))
-    @JsonIgnoreProperties({"domicilio", "promociones"})
+    @ManyToMany(mappedBy = "promociones", fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("promociones")
     @Builder.Default
+    @JsonBackReference
     private Set<Sucursal> sucursales = new HashSet<>();
 
     @OneToMany(mappedBy = "promocion", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)

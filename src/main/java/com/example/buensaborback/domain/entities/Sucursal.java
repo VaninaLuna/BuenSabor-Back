@@ -42,4 +42,12 @@ public class Sucursal extends Base{
     @JsonIgnoreProperties({"domicilio"})
     @Builder.Default
     private Set<Categoria> categorias = new HashSet<>();
+
+    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinTable(name = "promocion_sucursal",
+            joinColumns = @JoinColumn(name = "sucursal_id"),
+            inverseJoinColumns = @JoinColumn(name = "promocion_id"))
+    @JsonIgnoreProperties({"promociones"})
+    @Builder.Default
+    private Set<Promocion> promociones = new HashSet<>();
 }
